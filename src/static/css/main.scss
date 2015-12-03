@@ -1,0 +1,65 @@
+body {
+  background-image: url("https://dn-tmp.qbox.me/lark/noise-grey.v1.png");
+}
+
+.main {
+  margin-top: 10px;
+  max-width: 400px;
+  margin: auto;
+
+  h1 {
+    margin: 25px 0;
+  }
+}
+
+.form-group {
+  margin-bottom: 15px;
+
+  label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  textarea {
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 3px;
+
+    ::focus {
+      border-color: #66afe9;
+    }
+  }
+  textarea[name="input-slug"] {
+    background-color: rgba(238, 238, 238, 0.3);
+  }
+}
+
+.form-actions {
+  margin: 10px 0;
+
+  input {
+    border: 1px solid transparent;
+    color: #fff;
+    background-color: #fff;
+    font-size: 1.1em;
+    margin-right: 20px;
+    border-radius: 5px;
+    padding: 10px 15px;
+    text-align: center;
+    cursor: pointer;
+  }
+  input[type="reset"] {
+    color: #333;
+    border-color: #ccc;
+  }
+  input[type="reset"]:hover {
+    background-color: #e6e6e6;
+  }
+  input[type="submit"] {
+    background-color: #337ab7;
+  }
+  input[type="submit"]:hover {
+    background-color: #286090;
+  }
+}

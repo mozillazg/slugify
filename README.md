@@ -1,1 +1,3 @@
 # slugify
+
+Online Slug Generator.
