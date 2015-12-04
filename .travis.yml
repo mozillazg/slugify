@@ -1,0 +1,12 @@
+language: python
+python:
+  - 3.5
+
+sudo: false
+
+install:
+  - pip install -r requirements_dev.txt
+
+script:
+  - pre-commit run --all-files
+  - python -m src/test_api.py
