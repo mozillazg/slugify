@@ -1,15 +1,12 @@
 import React from 'react';
 
-export default class SlugifyForm extends React.Component {
-  constructor() {
-    super();
+class SlugifyForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {text: '', slug: ''};
 
     this.submitHandler = this.submitHandler.bind(this);
     this.textChangeHandler = this.textChangeHandler.bind(this);
-    this.state = {
-      text: '',
-      slug: ''
-    }
   };
 
   textChangeHandler(e) {
@@ -63,3 +60,6 @@ export default class SlugifyForm extends React.Component {
     )
   }
 }
+
+export default SlugifyForm;
+module.exports = SlugifyForm;

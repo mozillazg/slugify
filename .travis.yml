@@ -6,7 +6,11 @@ sudo: false
 
 install:
   - pip install -r requirements_dev.txt
+  - nvm install 5.1.1
+  - npm install
 
 script:
   - pre-commit run --all-files
-  - python -m src/test_api.py
+  - python -m src.test_api
+  - npm test
+  - npm run build
