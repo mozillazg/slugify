@@ -18,14 +18,14 @@ class SlugifyTestCase(unittest.TestCase):
         with app.app_context():
             url = url_for('home')
         rv = self.client.get(url)
-        self.assertIn('<div id="app"></div>', rv.data)
+        self.assertIn('<div id="app"></div>', rv.data.decode('utf8'))
 
     def test_slugify(self):
         with app.app_context():
             url = url_for('_slugify')
         data = {'text': 'a b c'}
         rv = self.client.post(url, data=data)
-        rv_data = json.loads(rv.data)
+        rv_data = json.loads(rv.data.decode('utf8'))
         self.assertEqual(rv_data['text'], 'a b c')
         self.assertEqual(rv_data['slug'], 'a-b-c')
 
