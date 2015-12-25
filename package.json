@@ -28,10 +28,11 @@
     "webpack-dev-server": "^1.14.0"
   },
   "scripts": {
-    "build": "webpack --progress --colors",
+    "build": "webpack -p --progress --colors",
     "watch": "webpack --watch --colors",
     "test": "jest",
-    "dev": "webpack-dev-server --devtool eval --progress --colors --hot --inline --host 0.0.0.0"
+    "dev": "webpack-dev-server -d --progress --colors --hot --inline --host 0.0.0.0",
+    "backend": "python src/app.py"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
