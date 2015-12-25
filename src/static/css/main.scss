@@ -1,14 +1,19 @@
+$bp_small : 24em;
+$bp_med : 31.25em;
+$bp_large : 50em;
+$bp_xl : 73em;
+
 body {
-  background-image: url("https://dn-tmp.qbox.me/lark/noise-grey.v1.png");
+  background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wgARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAGvA//EABQQAQAAAAAAAAAAAAAAAAAAAAD/2gAIAQEAAQUCf//EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAIAQMBAT8Bf//EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAIAQIBAT8Bf//EABQQAQAAAAAAAAAAAAAAAAAAAAD/2gAIAQEABj8Cf//EABQQAQAAAAAAAAAAAAAAAAAAAAD/2gAIAQEAAT8hf//aAAwDAQACAAMAAAAQ8//EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAIAQMBAT8Qf//EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAIAQIBAT8Qf//EABQQAQAAAAAAAAAAAAAAAAAAAAD/2gAIAQEAAT8Qf//Z');
 }
 
 .main {
   margin-top: 10px;
-  max-width: 400px;
+  width: $bp_med - 2;
   margin: auto;
 
   h1 {
-    margin: 25px 0;
+    margin: 1.6rem 0;
   }
 }
 
@@ -22,6 +27,7 @@ body {
     text-transform: uppercase;
   }
   textarea {
+    width: 99%;
     border: 1px solid #ddd;
     background-color: #fff;
     border-radius: 3px;
@@ -61,5 +67,15 @@ body {
   }
   input[type="submit"]:hover {
     background-color: #286090;
+  }
+}
+
+@media only screen and (max-width: $bp_med) {
+  .main {
+    width: 99%;
+
+    h1 {
+      margin: 1rem 0;
+    }
   }
 }

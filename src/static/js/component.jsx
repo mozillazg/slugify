@@ -19,6 +19,11 @@ class SlugifyForm extends React.Component {
 
   submitHandler(e) {
     e.preventDefault();
+    var text = this.state.text;
+    if (!text) {
+      return false;
+    }
+
     var httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = function() {
       if (httpRequest.readyState === XMLHttpRequest.DONE &&
@@ -31,7 +36,7 @@ class SlugifyForm extends React.Component {
     httpRequest.open('POST', '/slugify', true);
     httpRequest.setRequestHeader('Content-Type', 'application/json');
     httpRequest.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-    var data = {text: this.state.text};
+    var data = {text: text};
     httpRequest.send(JSON.stringify(data));
   };
 
