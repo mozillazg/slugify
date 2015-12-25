@@ -1,0 +1,5 @@
+---
+
+- name: Copy nginx configuration
+  template: src=nginx.conf dest=/etc/nginx/conf.d/slugify.conf
+  notify: Check then reload nginx

@@ -1,0 +1,33 @@
+---
+
+- name: Update code
+  register: codeupdated
+  git: repo={{ repository }}
+       dest={{ code_dir }}
+       update=yes
+       version=master
+
+- name: Install requirements
+  register: pipinstalled
+  when: codeupdated|success
+  pip: requirements=requirements.txt
+       chdir={{ code_dir }}
+       virtualenv={{ virtualenv_dir }}
+
+- file: dest={{ code_dir }}/etc/ state=directory
+- file: dest={{ pid_dir }} state=directory owner=nobody group=nobody
+
+- name: Copy gunicorn configuration
+  template: src=gunicorn.py dest={{ code_dir }}/etc/gunicorn.py
+
+- name: Copy supervisord configuration
+  template: src=supervisord.conf dest=/etc/supervisord/conf.d/slugify.conf
+
+- name: Change owner
+  register: changeowner
+  when: pipinstalled|success
+  file: dest={{ code_dir }} state=directory recurse=yes
+        owner=nobody group=nobody
+  notify:
+    - Start supervisord
+    - Reload gunicorn

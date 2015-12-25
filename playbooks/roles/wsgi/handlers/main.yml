@@ -1,0 +1,9 @@
+---
+
+- name: Start supervisord
+  supervisorctl: name=slugify state=present
+
+- name: Reload gunicorn
+  shell: kill -HUP $(cat {{ gunicorn_pidfile }})
+  args:
+    removes: "{{ gunicorn_pidfile }}"

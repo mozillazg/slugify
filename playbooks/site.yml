@@ -1,0 +1,11 @@
+---
+
+- name: Install Slugify
+  remote_user: "{{ remote_user }}"
+  sudo: yes
+  hosts: web_servers
+
+  roles:
+    - common
+    - wsgi
+    - nginx

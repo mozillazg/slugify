@@ -1,0 +1,12 @@
+---
+
+web_domain: slug.3sd.me
+web_user: nobody
+web_group: nobody
+code_dir: /www/slugify
+virtualenv_dir: /www/slugify/venv
+log_dir: /var/log/slugify
+repository: https://github.com/mozillazg/slugify.git
+pid_dir: /var/run/supervisord/
+gunicorn_bind: unix:/var/run/supervisord/slugify.sock
+gunicorn_pidfile: /var/run/supervisord/slugify.pid
