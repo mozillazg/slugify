@@ -7,8 +7,8 @@ var webpack = require('webpack');
 
 var ROOT_PATH = path.resolve(__dirname);
 var BUILD_PATH = path.resolve(ROOT_PATH, 'dist');
-var JS_PATH = path.resolve(ROOT_PATH, 'src/static/js');
-var CSS_PATH = path.resolve(ROOT_PATH, 'src/static/css');
+var JS_PATH = path.resolve(ROOT_PATH, 'static/js');
+var CSS_PATH = path.resolve(ROOT_PATH, 'static/css');
 
 var config = {
   entry: {
@@ -19,7 +19,7 @@ var config = {
 
   resolve: {
     extensions: ['', '.js', '.jsx', '.scss', '.css'],
-    modulesDirectories: ['node_modules', 'src/static'],
+    modulesDirectories: ['node_modules', 'static'],
   },
 
   output: {
@@ -69,8 +69,7 @@ var config = {
     new webpack.NoErrorsPlugin()
   ],
 
-  debug: true,
-  devtool: 'eval-cheap-module-source-map',
+  devtool: 'source-map',
   devServer: {
     contentBase: BUILD_PATH,
     historyApiFallback: true,
